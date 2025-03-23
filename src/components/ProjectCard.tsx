@@ -15,7 +15,7 @@ const ProjectCard = ({ title, location, partner, image }: ProjectCardProps) => {
     <Card className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
       <div className="h-64 overflow-hidden">
         <img 
-          src={image} 
+          src={`/assets${image}`} 
           alt={title} 
           className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
         />

@@ -1,5 +1,6 @@
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Card, CardContent } from "@/components/ui/card";
@@ -14,7 +15,7 @@ const projects = [
     category: "educational",
     partner: "Evergreen Construction Management",
     description: "Extensive masonry work for the expansion of this educational facility, featuring intricate brick detailing and architectural elements that complement the existing campus aesthetic.",
-    image: "/photo-1486718448742-163732cd1544.jpg"
+    image: "/assets/photo-1486718448742-163732cd1544.jpg"
   },
   {
     id: 2,
@@ -23,7 +24,7 @@ const projects = [
     category: "commercial",
     partner: "R.C. Stevens Construction Company",
     description: "Modern commercial office space with a sophisticated masonry façade, combining traditional brick with contemporary design elements for a distinctive appearance.",
-    image: "/photo-1488972685288-c3fd157d7c7a.jpg"
+    image: "/assets/photo-1488972685288-c3fd157d7c7a.jpg"
   },
   {
     id: 3,
@@ -32,7 +33,7 @@ const projects = [
     category: "financial",
     partner: "Scherer Construction of North Florida, LLC",
     description: "Financial institution featuring elegant masonry work that provides both security and aesthetic appeal, with specialty stonework at entryways.",
-    image: "/photo-1527576539890-dfa815648363.jpg"
+    image: "/assets/photo-1527576539890-dfa815648363.jpg"
   },
   {
     id: 4,
@@ -41,7 +42,7 @@ const projects = [
     category: "commercial",
     partner: "Ryan Companies US, Inc.",
     description: "Large-scale utility headquarters showcasing extensive brick and concrete masonry, designed for durability while maintaining an impressive corporate presence.",
-    image: "/photo-1433086966358-54859d0ed716.jpg"
+    image: "/assets/photo-1433086966358-54859d0ed716.jpg"
   },
   {
     id: 5,
@@ -50,7 +51,7 @@ const projects = [
     category: "government",
     partner: "Ajax Building Corporation",
     description: "Government facility with detailed masonry features that balance functionality with visual appeal, including decorative stone elements at the main entrance.",
-    image: "/photo-1459767129954-1b1c1f9b9ace.jpg"
+    image: "/assets/photo-1459767129954-1b1c1f9b9ace.jpg"
   },
   {
     id: 6,
@@ -59,12 +60,18 @@ const projects = [
     category: "healthcare",
     partner: "Robins & Morton",
     description: "Healthcare facility with specialized masonry work designed to create a healing environment, featuring sound-dampening masonry techniques in critical areas.",
-    image: "/photo-1486718448742-163732cd1544.jpg"
+    image: "/assets/photo-1486718448742-163732cd1544.jpg"
   },
 ];
 
 const Projects = () => {
   const [filter, setFilter] = useState("all");
+  const location = useLocation();
+  
+  // Add scroll to top effect on route change
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
   
   const filteredProjects = filter === "all" 
     ? projects 
@@ -77,7 +84,7 @@ const Projects = () => {
       {/* Hero Section */}
       <section className="hero h-[40vh] relative">
         <img 
-          src="/photo-1488972685288-c3fd157d7c7a.jpg" 
+          src="/assets/photo-1488972685288-c3fd157d7c7a.jpg" 
           alt="Masonry Projects" 
           className="absolute inset-0 w-full h-full object-cover"
         />
